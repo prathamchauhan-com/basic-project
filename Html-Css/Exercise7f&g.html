@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <Style>
+        p {
+            font-family: Arial;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .profile {
+           
+            box-shadow: 2px 2px 10px rgba(143, 142, 142, 0.7);
+
+        }
+
+        .cat {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 4px;
+            margin-left: 5px;
+        }
+
+        .info {
+            
+            color: grey;
+            
+        }
+
+        .add-button {
+            margin-left: 5px;
+            margin-bottom: 9px;
+            margin-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            color: white;
+            font-size: 15px;
+            background-color: rgb(73, 166, 228);
+            border: none;
+            border-radius: 4px;
+        }
+
+      
+
+        .profile-pic {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-left: 6px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 200px 200px 200px;
+            column-gap: 20px;
+        }
+
+        .anogrid{
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            align-items: center;
+        }
+    </Style>
+</head>
+
+<body>
+
+
+    <div class="video-grid">
+        <div class="profile">
+
+            <img class="cat" src="cat.jpg">
+            <p class="name">Oliver</p>
+
+            <div class="anogrid">
+
+                <img class="profile-pic" src="dog2.jpg">
+
+
+
+
+                <p class="info">2 mutual friends</p>
+
+            </div>
+
+            <button class="add-button">Add Friend</button>
+
+        </div>
+
+
+
+
+
+        <div class="profile">
+            <img class="cat" src="cat2.jpg">
+
+            <p class="name">Mimi</p>
+            <div class="anogrid">
+
+                <img class="profile-pic" src="dog2.jpg">
+
+
+
+
+                <p class="info">2 mutual friends</p>
+
+            </div>
+
+            <button class="add-button">Add Friend</button>
+        </div>
+
+
+
+
+
+        <div class="profile">
+            <img class="cat" src="dog.jpg">
+
+
+            <p class="name">Rex</p>
+            <div class="anogrid">
+
+                <img class="profile-pic" src="dog2.jpg">
+
+
+
+
+                <p class="info">2 mutual friends</p>
+
+            </div>
+            <button class="add-button">Add Friend</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

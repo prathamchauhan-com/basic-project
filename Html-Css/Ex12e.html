@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>ex12e</title>
+        <style>
+
+            body{
+                height: 1000px;
+            }
+            .container{
+                display: inline-block;
+                position: relative;
+            }
+            .shirt{
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+            }
+
+            .sales{
+                background-color: rgb(0, 0, 0);
+                color: white;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                font-family: Arial;
+                font-size: 14px;
+
+                position: absolute;
+                top: 7px;
+                right: 0;
+            }
+
+            .overlay{
+                background-color: rgba(255, 255, 255, 0.7);
+                
+                left: 0;
+                bottom: 0;
+                height: 80px;
+                right: 0;
+                position: absolute;
+
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .button{
+                font-family: Arial;
+                font-size: 16px;
+                border-style: solid;
+                border-width: 1px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                background-color: white;
+                border-top-color: rgb(201, 201, 201);
+                border-right-color: rgb(201, 201, 201);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <img class="shirt" src="shirt.jpg">
+            <div class="sales">20% OFF</div>
+
+            <div class="overlay">
+                <button class="button">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

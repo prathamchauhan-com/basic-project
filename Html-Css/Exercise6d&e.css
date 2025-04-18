@@ -1,0 +1,119 @@
+input{
+    font-family: Arial;
+    font-size: 18px;
+    border-width: 1px;
+    border-color: grey;
+    border-style: solid;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 9px;
+    border-radius: 5px;
+    padding-bottom: 9px;
+    columns: rgb(189, 186, 186);
+    margin-bottom: 15px;
+}
+
+.last-text,
+.first-text{
+    width: 140px;
+
+}
+
+.email{
+    display: block;
+    width: 308px;
+}
+
+.sign-button{
+    font-size: 18px;
+    color: white;
+    background-color: rgb(49, 135, 233);
+    border: none;
+    width: 330px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 9px;
+    margin-bottom: 90px;
+    transition: color .15s, background-color .15s;
+}
+
+.sign-button:hover{
+    color: rgb(49, 135, 233);
+    background-color: rgb(231, 227, 227);
+}
+
+
+p{
+    font-family: Arial;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.pickup{
+    display: block;
+    margin-top: 25px;
+    width: 500px;
+    background-color: rgb(228, 227, 227);
+    border-width: 0;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.desti{
+    display: block;
+    margin-top: 9px;
+    width: 500px;
+    background-color: rgb(228, 227, 227);
+    border-width: 0;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 0;
+    margin-bottom: 40px;
+}
+
+
+
+.request-button{
+    background-color: black;
+    border: none;
+    color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-right: 16px;
+    font-family: Arial;
+    font-size: 16px;
+    
+}
+
+.sc-button{
+    background-color: rgb(228, 227, 227);
+    border: none;
+    color: rgb(0, 0, 0);
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.request-button:hover{
+    opacity: 0.8;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sc-button:hover{
+    background-color: rgb(109, 109, 109);
+    cursor: pointer;
+    font-weight: bold;
+}

@@ -1,0 +1,199 @@
+.sty{
+    font-family: Tahoma;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+.b{
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px
+}
+.ba{
+    font-family: Arial;
+    font-size: 12px;
+    margin-top: 0;
+    color: rgb(212, 62, 62);
+    font-style: italic;
+    margin-bottom: 100px;
+}
+
+.c{
+    font-family: Verdana;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.ca{
+    color: rgb(179, 176, 176);
+    font-size: 12px;
+    font-family: Arial;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.cav{
+    font-family: Verdana;
+    font-size: 12px;
+    width: 220px;
+    line-height: 18px;
+    margin-top: 0px;
+}
+
+.get-button{
+    background-color: rgb(15, 134, 11);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+.get-button:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+.d{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.da{
+    margin-top: 0;
+    font-family: Arial;
+    font-size: 12px;
+    text-align: center;
+}
+
+.dav{
+    font-family: arial;
+    font-size: 12px;
+    color: rgb(6, 113, 214);
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.e{
+    color: rgb(243, 63, 51);
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.ea{
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.eav{
+    font-family: Arial;
+    font-size: 26px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+.eaa{
+    font-family: Arial;
+    font-size: 12px;
+    color: grey;
+    text-align: center;
+    margin-top: 7px;
+}
+
+.ce{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.buy-button{
+    background-color: rgb(46, 127, 233);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding-left: 9px ;
+    padding-right: 9px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: Arial;
+}
+
+.f{
+    font-family: Arial;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.ff{
+    font-size: 14px;
+    color: grey;
+}
+
+.fa{
+    font-family: Arial;
+    font-size: 15px;
+    color: rgb(46, 161, 46);
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+.fas{
+    font-family: Arial;
+    font-size: 15px;
+    color: grey;
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+
+.fass{
+    color: rgb(245, 54, 54);
+}
+
+.g{
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.gg{
+    color: grey;
+    font-weight: normal;
+}
+
+.ga{
+    margin-top: 8px;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 23px;
+    width: 500px;
+    margin-bottom: 0;
+}
+
+.gs{
+    font-family: Arial;
+    margin-top: 19.6px;
+}
+
+.gss{
+    color: rgb(79, 185, 247);
+}

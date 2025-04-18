@@ -1,0 +1,49 @@
+.email,
+.name{
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: rgb(194, 177, 177);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.para{
+    width: 200px;
+    color: rgb(73, 72, 72);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.yes{
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.no{
+    vertical-align: middle;
+}
+
+.logo{
+    display: block;
+    width: 250px;
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+
+.search{
+    border-radius: 20px;
+    border: none;
+    width: 500px;
+    font-size: 16px;
+    padding-left: 9px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 10px;
+    box-shadow: 3px 3px 10px rgba(134, 133, 133, 0.7);
+    margin-bottom: 40px;
+    margin-left: 10px;
+    display: block;
+    margin-bottom: 40px;
+}

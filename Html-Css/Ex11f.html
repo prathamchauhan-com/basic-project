@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body{
+            padding-left: 50px;
+        }
+
+        img{
+            margin-bottom: 6px;
+        }
+        .cat {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .cat2 {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .dog {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+     
+     
+        .side-1{
+            
+            background-color: rgb(26, 25, 25);
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-right: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .side-2{
+            position: fixed;
+            background-color: rgb(51, 50, 50);
+            top: 0;
+            bottom: 0;
+            width: 130px;
+            left: 55px;
+            padding-left: 10px;
+            padding-right: 12px;
+            padding-top: 11px;
+            padding-bottom: 13px;
+            
+        }
+
+        .in-side{
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial;
+            font-weight: bold;
+            margin-bottom: 9px;
+            align-items: center;
+            width: 120px;
+            
+        }
+
+        .info{
+            font-size: 15px;
+            color: white;
+        }
+
+        .basics{
+            font-size: 12px;
+            color: rgb(192, 192, 192);
+            font-weight: 100;
+        }
+
+        .basic{
+            font-family: Arial;
+            font-size: 9px;
+            margin-bottom: 10px;
+            color: rgb(139, 137, 137);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side-bar">
+        <div class="side-1">
+            <img class="cat" src="cat.jpg">
+            <img class="cat2" src="cat2.jpg">
+            <img class="dog" src="dog2.jpg">
+        </div>
+
+        <div class="side-2">
+            <div class="in-side">
+                <div class="info">INFO</div>
+                <div class="basics">+</div>
+            </div>
+
+            <div class="basic"># new-video</div>
+            <div class="basic"># updates</div>
+            <div class="basic">#faq</div>
+        </div>
+    </div>
+</body>
+
+</html>

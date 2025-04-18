@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exerecise10_Ps</title>
+    <style>
+        .divs {
+            display: flex;
+            flex-direction: row;
+            height: 55px;
+            margin-bottom: 50px;
+        }
+
+        .div1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item {
+            background-color: black;
+            color: white;
+        }
+
+        .rows{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divs">
+        <div class="div1" style="background-color: pink; width: 100px">
+            <div class="item">
+                item1
+            </div>
+        </div>
+        <div style="background-color: skyblue; width: 200px"></div>
+    </div>
+
+
+
+
+    <div class="divs">
+        <div class="div1" style="background-color: pink; width: 100px">
+            <div>
+
+            </div>
+        </div>
+        <div style="background-color: skyblue; width: 200px">
+            <div>row1</div>
+            <div class="rows">
+                <div style="background-color: black; color: white;">row2</div>
+                <div style="background-color: black; color: white;">row2</div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

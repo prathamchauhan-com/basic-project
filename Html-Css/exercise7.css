@@ -1,0 +1,22 @@
+.divi{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: rgb(233, 17, 17);
+    margin-right: 20px;margin-bottom: 20px;
+}
+
+.divi2{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: green;
+    margin-left: 20px;
+    border-radius: 50px;
+    margin-left: 200px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+    
+}
+
+
