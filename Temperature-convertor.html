@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature convertor</title>
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(243, 243, 243);
+    }
+
+    form{
+      width: 400px;
+      background-color: white;
+      text-align: center;
+      margin: auto;
+      padding: 35px;
+      border-radius: 3px;
+      box-shadow: 3px 4px 10px rgba(135, 135, 135, .7);
+      
+    }
+    h1{
+      font-size: 3em;
+      color: rgb(31, 135, 255);
+    }
+    #textbox{
+      text-align: center;
+      font-size: 2em;
+      border: 3px solid rgba(22, 22, 22, 0.232);
+      width: 50%;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    label{
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    button{
+      color: white;
+      background-color: red;
+      border: none;
+      padding: 8px 20px;
+      font-size: 1.5em;
+      margin-top: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 5px;
+      
+    }
+    button:hover{
+      background-color: rgb(233, 65, 65);
+    }
+
+    p{
+      font-size: 23px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h1>Temperature conversion:</h1>
+    <input type="number" id="textbox" value="0"><br>
+
+    <input type="radio" id="tofahrenheit" name="unit">
+    <label for="tofahrenheit">Celsius ⇨ Fahrenheit</label><br>
+
+    <input type="radio" id="tocelsius" name="unit">
+    <label for="tocelsius">Fahrenheit ⇨ Celsius</label><br>
+
+    <button type="button" onclick="convert()">Submit</button>
+    <p id="result"></p>
+  </form>
+
+
+  <script>
+    const textbox = document.getElementById("textbox");
+    const tofahrenheit = document.getElementById("tofahrenheit");
+    const tocelsius = document.getElementById("tocelsius");
+    const result = document.getElementById("result");
+    let temp;
+
+    function convert(){
+
+      if(tofahrenheit.checked){
+        temp = Number(textbox.value);
+        temp = temp* 9/5 + 32;
+        result.textContent = temp.toFixed(2) + "F";
+       }
+       else if(tocelsius.checked){
+        temp = Number(textbox.value);
+        temp = (temp -32) * (5/9);
+        result.textContent = temp.toFixed(2) + "C";
+       }
+       else{
+        result.textContent = "Select a unit";
+       }
+    }
+  </script>
+</body>
+</html>
