@@ -78,7 +78,7 @@
       for (let i = 0; i < numofdice; i++) {
         const value = Math.floor((Math.random() * 6) + 1);
         values.push(value);
-        diceimages.push(`<img src="imagess/${value}.png">`);
+        diceimages.push(`<img src="${value}.png">`);
       }
       result.textContent = `Dice: ${values.join(', ')}`;
       images.innerHTML = diceimages.join('');
