@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice roller program</title>
+  <style>
+    #container {
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    input {
+      text-align: center;
+      width: 100px;
+      font-size: .79em;
+      padding: 4px;
+      border: none;
+      background-color: rgb(246, 246, 246);
+
+    }
+
+    button {
+      color: white;
+      background-color: red;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1em;
+      margin-top: 40px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: box-shadow .45s;
+    }
+
+    button:active {
+      box-shadow: 2px 3px 4px rgb(195, 195, 195);
+    }
+
+    #result {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    #images img {
+      width: 150px;
+      margin: 10px 10px 10px 10px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>Dice Roller</h1>
+    <label># Enter no. of dice to rolled:</label>
+    <input id="textbox" type="number" value="1" min="1"> <br>
+    <button onclick="rollDice()">Roll Dice</button>
+    <div id="result"></div>
+    <div id="images"></div>
+  </div>
+
+  <script>
+
+
+    function rollDice() {
+
+      const numofdice = document.getElementById("textbox").value;
+      const result = document.getElementById("result");
+      const images = document.getElementById("images");
+
+      const values = [];
+      const diceimages = [];
+
+
+      for (let i = 0; i < numofdice; i++) {
+        const value = Math.floor((Math.random() * 6) + 1);
+        values.push(value);
+        diceimages.push(`<img src="imagess/${value}.png">`);
+      }
+      result.textContent = `Dice: ${values.join(', ')}`;
+      images.innerHTML = diceimages.join('');
+    }
+
+
+  </script>
+</body>
+
+</html>
