@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+  <style>
+    body{
+      margin: 0;
+      background-image: url(imagess/images.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    #container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 560px;
+    }
+    #clock{
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 60px;
+      text-align: center;
+      color: white;
+      backdrop-filter: blur(2px);  /* for background blur effect*/
+      width: 100%;
+      background-color: rgba(238, 238, 238, 0.01);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="clock">00:00:00</div>
+  </div>
+
+
+  <script>
+    function updateClock(){
+      const now = new Date();
+      let hrs = now.getHours();
+      const meridian = hrs >= 12? "PM" : "AM";
+      hrs = hrs %12 ||12;  // used to convert 24 hrs format to 12 hrs format.
+      hrs = hrs.toString().padStart(2, 0);
+      const mins = now.getMinutes().toString().padStart(2, 0);
+      const sec = now.getSeconds().toString().padStart(2, 0);
+      const timeString = `${hrs}:${mins}:${sec} ${meridian}`;
+      document.getElementById("clock").textContent = timeString;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);  // update the clock every 1000ms. This function will repeat itself after very 1 second
+  // This will call the updateClock function every second to keep the time updated.
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(230, 230, 230);
+    }
+
+    #H1 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 2.3em;
+    }
+
+    #display {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 2em;
+      font-weight: bold;
+      color: rgb(77, 77, 77);
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 2px rgba(69, 69, 69, 0.2);
+
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid black;
+      padding: 30px;
+      border-radius: 16px;
+      background-color: white;
+    }
+
+    button {
+      border: none;
+      font-size: 1.4em;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: white;
+      padding: 8px;
+      border-radius: 6px;
+      margin: 4px;
+      cursor: pointer;
+      transition: background-color .25s ease;
+    }
+
+    #startbu {
+      background-color: rgb(255, 36, 36);
+
+    }
+
+    #resetbu {
+      background-color: rgb(0, 0, 247);
+    }
+
+    #stopbu {
+      background-color: rgb(0, 149, 255);
+    }
+
+    button:hover {
+      opacity: .7;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="H1">Stopwatch</h1>
+  <div id="container">
+    <div id="display">00:00:00:00</div>
+    <div>
+      <button id="resetbu" onclick="reset()">Reset</button>
+      <button id="stopbu" onclick="stop()">Stop</button>
+      <button id="startbu" onclick="start()">Start</button>
+    </div>
+  </div>
+
+
+  <script>
+    const display = document.getElementById("display");
+    let timer;  // it will hold the id of setInterval
+    let startTimer = 0;
+    let elapsedTime = 0;  //means past time. 
+    let isRunning = false;
+
+
+    function start() {
+      if (!isRunning) {
+        startTimer = Date.now() - elapsedTime;
+        timer = setInterval(update, 10);
+        isRunning = true;
+      }
+    }
+
+    function stop() {
+      if (isRunning) {
+        clearInterval(timer);
+        const currentTime = Date.now();
+        // Calculate elapsed time when stopped.
+        elapsedTime = currentTime - startTimer; 
+        isRunning = false;
+      }
+    }
+
+    function reset() {
+      clearInterval(timer);
+      startTimer = 0;
+      elapsedTime = 0;
+      isRunning = false;
+
+      display.textContent = `00:00:00:00`;
+    }
+
+    function update() {
+      const currentTime = Date.now();
+      elapsedTime = currentTime - startTimer; //it cal. how much time has passed since the stopwatch started.
+
+      let hrs = Math.floor(elapsedTime / (1000 * 60 * 60));
+      let mins = Math.floor(elapsedTime / (1000 * 60) % 60); //(0-59)
+      let sec = Math.floor(elapsedTime / 1000 % 60); //(0-59)
+      let ms = Math.floor(elapsedTime % 1000 / 10);
+
+      hrs = String(hrs).padStart(2, "0");
+      mins = String(mins).padStart(2, "0");
+      sec = String(sec).padStart(2, "0");
+      ms = String(ms).padStart(2, "0");
+
+      display.textContent = `${hrs}:${mins}:${sec}:${ms}`;
+
+    }
+  </script>
+</body>
+
+</html>
