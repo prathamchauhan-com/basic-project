@@ -1,109 +1,79 @@
-const weatherForm = document.querySelector(".weatherForm");
-const cityinfo = document.querySelector(".cityInfo");
-const card = document.querySelector(".card");
-const APIKey = "fc34f8c9fd134fa5c677ba1507e42df9";
-
-weatherForm.addEventListener("submit", async event => {
+document.querySelector(".weatherForm").addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const city = cityinfo.value;
-  if (city) {
-    try {
-      const weatherData = await getWeather(city);
-      weatherinfo(weatherData);
+  const city = document.querySelector(".cityInfo").value;
+  const card = document.getElementById("weatherCard");
+  const forecastContainer = document.getElementById("forecastContainer");
+  const errorMsg = document.getElementById("errorMsg");
+
+  card.style.display = "none";
+  forecastContainer.style.display = "none";
+  errorMsg.textContent = "";
+
+  try {
+    // ⚡ Use OpenWeatherMap API directly (replace with your API key)
+    const apiKey = "fc34f8c9fd134fa5c677ba1507e42df9";
+    const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    const response = await fetch(currentUrl);
+    const data = await response.json();
+
+    if (data.cod !== 200) {
+      errorMsg.textContent = "City not found!";
+      return;
     }
-    catch (error) {
-      console.error(error);
-      errorinfo(error);
-    }
-  }
-  else {
-    errorinfo("Please enter a city name");
+
+    document.querySelector(".cityD").textContent = data.name;
+    document.querySelector(".dateD").textContent = new Date().toDateString();
+    document.querySelector(".tempD").textContent = `${Math.round(data.main.temp)}°C`;
+    document.querySelector(".descD").textContent = data.weather[0].description;
+    document.querySelector(".humidityD").textContent = `Humidity: ${data.main.humidity}%`;
+
+    // Set icon
+    const weatherIcon = document.querySelector(".weatherIcon");
+    weatherIcon.className = "wi weatherIcon " + getWeatherIcon(data.weather[0].main);
+
+    card.style.display = "block";
+
+    // Forecast (next 3 days)
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+    const forecastRes = await fetch(forecastUrl);
+    const forecastData = await forecastRes.json();
+
+    const grid = document.getElementById("forecastGrid");
+    grid.innerHTML = "";
+    let count = 0;
+    const seenDates = new Set();
+
+    forecastData.list.forEach(item => {
+      const date = new Date(item.dt * 1000).toDateString();
+      if (!seenDates.has(date) && count < 3) {
+        seenDates.add(date);
+        count++;
+        const div = document.createElement("div");
+        div.className = "forecast-card";
+        div.innerHTML = `
+          <p><strong>${date}</strong></p>
+          <i class="wi ${getWeatherIcon(item.weather[0].main)}" style="font-size:2em;"></i>
+          <p>${Math.round(item.main.temp)}°C</p>
+        `;
+        grid.appendChild(div);
+      }
+    });
+
+    forecastContainer.style.display = "block";
+  } catch (err) {
+    errorMsg.textContent = "⚠️ Failed to fetch weather data.";
   }
 });
 
-async function getWeather(city) {
-
-  const APIUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
-
-  const response = await fetch(APIUrl);
-  //console.log(response);
-  if (!response.ok) {
-    throw new Error("Couldn't fetch weather information.");
+function getWeatherIcon(condition) {
+  switch (condition.toLowerCase()) {
+    case "clear": return "wi-day-sunny";
+    case "clouds": return "wi-cloudy";
+    case "rain": return "wi-rain";
+    case "snow": return "wi-snow";
+    case "thunderstorm": return "wi-thunderstorm";
+    case "mist": return "wi-fog";
+    default: return "wi-na";
   }
-  return await response.json();
-}
-
-function weatherinfo(data) {
-  console.log(data);
-  const { name: city,
-    main: { temp, humidity },
-    weather: [{ description, id }] } = data;
-
-  card.style.display = "flex";
-  card.textContent = "";
-
-  const cityName = document.createElement("h1");
-  const tempD = document.createElement("p");
-  const humidityD = document.createElement("p");
-  const descriptionD = document.createElement("p");
-  const emojiD = document.createElement("p");
-
-  cityName.textContent = city;
-  tempD.textContent = `${(temp - 273.15).toFixed(2)}⁰C`;
-  humidityD.textContent = `Humidity: ${humidity}%`;
-  descriptionD.textContent = description;
-  emojiD.textContent = emojiInfo(id);
-
-
-  cityName.classList.add("cityD");
-  tempD.classList.add("tempD");
-  humidityD.classList.add("humidityD");
-  descriptionD.classList.add("descD");
-  emojiD.classList.add("emojiD");
-
-  card.appendChild(cityName);
-  card.appendChild(tempD);
-  card.appendChild(humidityD);
-  card.appendChild(descriptionD);
-  card.appendChild(emojiD);
-}
-
-function emojiInfo(weatherId) {
-
-  switch (true) {
-    case (weatherId >= 200 && weatherId < 300):
-      return "⚡";
-
-    case (weatherId >= 300 && weatherId < 400):
-      return "💧";
-
-    case (weatherId >= 500 && weatherId < 600):
-      return "☔";
-
-    case (weatherId >= 600 && weatherId < 700):
-      return "⛄";
-
-    case (weatherId >= 700 && weatherId < 800):
-      return "🌪";
-
-    case (weatherId === 800):
-      return "🌞";
-
-    case (weatherId >= 800 && weatherId < 810):
-      return "☁️";
-
-    default:
-      return "❓";
-  }
-}
-
-function errorinfo(message) {
-  const errorD = document.createElement("p");
-  errorD.textContent = message;
-  errorD.classList.add("errorD");
-
-  card.textContent = "";
-  card.style.display = "flex";
-  card.appendChild(errorD);
 }

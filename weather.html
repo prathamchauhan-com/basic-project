@@ -9,20 +9,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">🌤️ Weather Finder</h1>
+  <div class="app-container">
+    <h1 class="title">🌍 Weather Finder</h1>
 
     <form class="weatherForm">
-      <input type="text" class="cityInfo" placeholder="Enter city name" required>
-      <button type="submit">Search</button>
+      <div class="search-box">
+        <input type="text" class="cityInfo" placeholder="Enter city name..." required>
+        <button type="submit"><i class="wi wi-search"></i></button>
+      </div>
     </form>
 
-    <div class="card" id="weatherCard" style="display:none;">
-      <h2 class="cityD"></h2>
-      <i class="wi weatherIcon"></i>
-      <p class="tempD"></p>
-      <p class="humidityD"></p>
-      <p class="descD"></p>
+    <!-- Current Weather -->
+    <div class="main-card" id="weatherCard" style="display:none;">
+      <div class="weather-header">
+        <h2 class="cityD"></h2>
+        <p class="dateD"></p>
+      </div>
+      <div class="weather-body">
+        <i class="wi weatherIcon"></i>
+        <div>
+          <p class="tempD"></p>
+          <p class="descD"></p>
+          <p class="humidityD"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forecast -->
+    <div class="forecast" id="forecastContainer" style="display:none;">
+      <h3>Next 3 Days Forecast</h3>
+      <div class="forecast-grid" id="forecastGrid"></div>
     </div>
 
     <p class="errorD" id="errorMsg"></p>

@@ -1,98 +1,129 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #000046, #1cb5e0);
   margin: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   color: white;
 }
 
-.container {
+.app-container {
+  width: 95%;
+  max-width: 900px;
   text-align: center;
 }
 
 .title {
-  font-size: 2.5em;
-  margin-bottom: 15px;
+  font-size: 2.3em;
+  margin-bottom: 20px;
 }
 
-.weatherForm {
-  margin: 20px 0;
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
 }
 
 .cityInfo {
-  font-size: 1.2em;
-  width: 250px;
+  flex: 1;
   padding: 10px;
+  font-size: 1.2em;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   outline: none;
-  text-align: center;
-}
-
-button[type="submit"] {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  margin-left: 10px;
-  background: #00c6ff;
-  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  background: transparent;
   color: white;
-  font-weight: bold;
-  font-size: 1.1em;
+}
+
+.cityInfo::placeholder {
+  color: #ddd;
+}
+
+.search-box button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1.5em;
   cursor: pointer;
-  transition: 0.3s ease;
+  padding: 8px 12px;
+  transition: transform 0.3s;
 }
 
-button[type="submit"]:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
+.search-box button:hover {
+  transform: scale(1.2);
 }
 
-.card {
+.main-card {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
-  padding: 30px;
+  padding: 25px;
   margin-top: 20px;
-  min-width: 280px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
-  display: inline-block;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
   animation: fadeIn 0.6s ease;
 }
 
-.cityD {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0;
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .weatherIcon {
   font-size: 4em;
-  margin: 15px 0;
+  margin-right: 15px;
 }
 
 .tempD {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
 }
 
 .humidityD {
   font-size: 1.2em;
-  margin: 8px 0;
+  margin-top: 5px;
 }
 
-.descD {
-  font-size: 1.3em;
-  font-style: italic;
-  text-transform: capitalize;
+.forecast {
+  margin-top: 25px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.forecast-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
+
+.forecast-card:hover {
+  transform: scale(1.05);
 }
 
 .errorD {
-  font-size: 1.2em;
   margin-top: 15px;
+  font-size: 1.2em;
   color: #ffdddd;
 }
 
