@@ -5,17 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="stylesheet" href="wea.css">
+  <!-- Weather Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
 </head>
 <body>
-  <h1>Weather App</h1>
-  <form class="weatherForm">
-    <input type="text" class="cityInfo" placeholder="Enter city name">
-    <button type="submit">Search </button>
-  </form>
+  <div class="container">
+    <h1 class="title">🌤️ Weather Finder</h1>
 
-  <div class="card" style="display: none;">  </div>
+    <form class="weatherForm">
+      <input type="text" class="cityInfo" placeholder="Enter city name" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="card" id="weatherCard" style="display:none;">
+      <h2 class="cityD"></h2>
+      <i class="wi weatherIcon"></i>
+      <p class="tempD"></p>
+      <p class="humidityD"></p>
+      <p class="descD"></p>
+    </div>
+
+    <p class="errorD" id="errorMsg"></p>
+  </div>
+
+  <script src="weather.js"></script>
 </body>
-
-
-<script src="weather.js"></script>
 </html>

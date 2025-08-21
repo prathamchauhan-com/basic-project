@@ -94,7 +94,7 @@ function emojiInfo(weatherId) {
       return "☁️";
 
     default:
-      return "❓";  
+      return "❓";
   }
 }
 
