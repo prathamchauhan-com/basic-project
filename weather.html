@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <!-- Weather Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
 </head>
+
 <body>
   <div class="app-container">
     <h1 class="title">🌍 Weather Finder</h1>
@@ -37,8 +39,44 @@
 
     <!-- Forecast -->
     <div class="forecast" id="forecastContainer" style="display:none;">
-      <h3>Next 3 Days Forecast</h3>
+      <h3>Next 9 Days Forecast</h3>
       <div class="forecast-grid" id="forecastGrid"></div>
+      <div class="forecast">
+
+        <div class="forecast-grid">
+          <div class="forecast-card">
+            <div class="day">Mon</div>
+            <div class="icon">☀️</div>
+            <div class="temp">30°C</div>
+          </div>
+          <div class="forecast-card">
+            <div class="day">Tue</div>
+            <div class="icon">🌤</div>
+            <div class="temp">28°C</div>
+          </div>
+          <div class="forecast-card">
+            <div class="day">Wed</div>
+            <div class="icon">🌧</div>
+            <div class="temp">26°C</div>
+          </div>
+          <div class="forecast-card">
+            <div class="day">Thu</div>
+            <div class="icon">⛈</div>
+            <div class="temp">25°C</div>
+          </div>
+          <div class="forecast-card">
+            <div class="day">Fri</div>
+            <div class="icon">⛅</div>
+            <div class="temp">27°C</div>
+          </div>
+          <div class="forecast-card">
+            <div class="day">Sat</div>
+            <div class="icon">☀️</div>
+            <div class="temp">31°C</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <p class="errorD" id="errorMsg"></p>
@@ -46,4 +84,5 @@
 
   <script src="weather.js"></script>
 </body>
+
 </html>
