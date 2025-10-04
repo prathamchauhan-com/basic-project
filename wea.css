@@ -1,41 +1,47 @@
 :root {
-  --bg-gradient: linear-gradient(135deg, #1e3c72, #2a5298);
   --accent: #1cb5e0;
-  --card-bg: rgba(255, 255, 255, 0.12);
-  --text-light: #ffffff;
-  --text-dark: #222;
+  --light-bg: #f5f7fa;
+  --dark-bg: #1a1a1a;
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --radius: 18px;
 }
 
+/* Background changes dynamically */
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--bg-gradient);
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
   margin: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-light);
-  transition: background 0.6s ease;
+  transition: background 1s ease;
+  color: #fff;
 }
 
-/* Container */
 .app-container {
   width: 95%;
-  max-width: 900px;
+  max-width: 850px;
   text-align: center;
   padding: 20px;
-  animation: fadeIn 0.6s ease-in;
 }
 
-/* Title */
-.title {
-  font-size: 2.6em;
-  margin-bottom: 20px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+#themeToggle {
+  border: none;
+  background: transparent;
+  color: black;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#themeToggle:hover {
+  transform: rotate(30deg);
 }
 
 /* Search Box */
@@ -43,199 +49,91 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 12px;
-  border-radius: 14px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: var(--radius);
+  margin-top: 15px;
 }
-
-.search-box:hover {
-  transform: scale(1.02);
-}
-
 .cityInfo {
   flex: 1;
   padding: 12px;
   font-size: 1em;
   border: none;
-  border-radius: 8px;
   outline: none;
   background: transparent;
-  color: var(--text-light);
+  color: #fff;
 }
-
-.cityInfo::placeholder {
-  color: #ddd;
-}
-
+.cityInfo::placeholder { color: #ddd; }
 .search-box button {
   border: none;
   background: var(--accent);
   color: white;
-  font-size: 1.1em;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
   margin-left: 8px;
-  transition: all 0.3s;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.search-box button:hover { background: #0f75bd; }
+
+/* Spinner */
+.spinner {
+  border: 4px solid rgba(255,255,255,0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-.search-box button:hover {
-  background: #3dd2ff;
-  transform: scale(1.08);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Main Weather Card */
+/* Weather Card */
 .main-card {
   background: var(--card-bg);
-  border-radius: 22px;
-  padding: 28px;
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 24px;
   margin-top: 25px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(18px);
-  animation: fadeInUp 0.6s ease;
-  transition: transform 0.3s ease;
+  animation: fadeIn 0.8s ease;
 }
+.weatherIcon { font-size: 5em; color: #ffd700; }
+.tempD { font-size: 3em; font-weight: bold; }
+.descD { font-size: 1.2em; text-transform: capitalize; }
 
-.main-card:hover {
-  transform: translateY(-6px);
-}
-
-.weather-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.weather-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.weatherIcon {
-  font-size: 4.8em;
-  margin-right: 18px;
-  color: var(--accent);
-  transition: transform 0.3s ease;
-}
-
-.weatherIcon:hover {
-  transform: scale(1.15) rotate(5deg);
-}
-
-.tempD {
-  font-size: 2.8em;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff7e5f, #feb47b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.humidityD {
-  font-size: 1.1em;
-  opacity: 0.85;
-  margin-top: 6px;
-}
-
-/* Forecast Section */
+/* Forecast */
 .forecast {
-  margin-top: 35px;
+  margin-top: 30px;
 }
-
-.forecast h2 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
-  font-weight: 700;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
 .forecast-grid {
   display: flex;
-  gap: 15px;
+  gap: 14px;
   margin-top: 10px;
   overflow-x: auto;
   padding-bottom: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
 }
-
-.forecast-grid::-webkit-scrollbar {
-  height: 8px;
-}
-
-.forecast-grid::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 6px;
-}
-
 .forecast-card {
-  min-width: 140px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 15px;
+  min-width: 120px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px;
   text-align: center;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, background 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
-
 .forecast-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.1);
 }
 
-/* Forecast Day Name */
-.forecast-card .day {
-  font-size: 1em;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
+/* Error */
+.errorD { color: #ff4d4d; font-weight: bold; margin-top: 16px; }
 
-/* Forecast Icon */
-.forecast-card .icon {
-  font-size: 2.2em;
-  margin: 6px 0;
-  color: var(--accent);
-  transition: transform 0.3s;
-}
-
-.forecast-card:hover .icon {
-  transform: scale(1.2) rotate(8deg);
-}
-
-/* Forecast Temperature */
-.forecast-card .temp {
-  font-size: 1.2em;
-  font-weight: 500;
-}
-
-/* Error Message */
-.errorD {
-  margin-top: 18px;
-  font-size: 1.1em;
-  color: #ff6b6b;
-  font-weight: 500;
-  animation: fadeIn 0.4s ease;
-}
-
-/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+
