@@ -1,0 +1,25 @@
+/* Smooth scrolling inside the chat window */
+#chat-window {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+#chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+#chat-window::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 4px;
+}
+#chat-window::-webkit-scrollbar-thumb:hover {
+  background-color: #374151;
+}
+
+/* Chat bubble styling */
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
